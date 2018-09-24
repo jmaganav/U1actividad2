@@ -2,8 +2,11 @@ package unam.fca.dmoviles;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.time.LocalDateTime;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,19 +20,31 @@ public class MainActivity extends AppCompatActivity {
 
         // El archivo del layout de la actividad se encuentra en la carpeta
         // res/layout/activity_main.xml
+
         setContentView(R.layout.activity_main);
+
+        final TextView tv = findViewById(R.id.btn);
+
+        final Button button = findViewById(R.id.btn);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+               tv.setText(LocalDateTime.now().toString());            }
+        });
+
+
+        final TextView helloTextView = (TextView) findViewById(R.id.btn) ;
+        helloTextView.setText(R.string.btn);
 
 
         //Para hacer referencia a un componente del layout, utilizamos el metodo findViewById
         //y le pasamos como parametro el id correspondiente.
 
-        final TextView tv = findViewById(R.id.btn);
-
-        final Button btn = findViewById(R.id.btn);
-
-
         //Para cambiar el texto de tv
-        tv.setText("Hola mundo");
+        //tv.setText(R.string.btn);
 
         //Actividades
         //a) Agrega un evento  setOnClickListener al boton como viene en la referencia
